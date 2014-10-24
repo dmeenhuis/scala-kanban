@@ -4,6 +4,11 @@ version := "1.0"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
 
+/*unmanagedResourceDirectories in Compile <++= baseDirectory { base =>
+  Seq( base / "src/main/webapp" )
+}*/
+unmanagedResourceDirectories in Compile += baseDirectory.value / "src/main/webapp"
+
 libraryDependencies ++= {
   val akkaV = "2.3.6"
   val sprayV = "1.3.2"
@@ -24,3 +29,4 @@ lazy val root = (project in file("."))
                   .enablePlugins(SbtTwirl)
 
 Revolver.settings
+
