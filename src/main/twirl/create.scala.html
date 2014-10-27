@@ -1,10 +1,12 @@
+@(message: String)
+
 <html>
     <head>
         <title>Create new story</title>
         <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8" />
     </head>
     <body>
-        <span class="message">message</span>
+        <span class="message">@message</span>
 
         <div class="createStory">
             <form action="/card/save" method="post" accept-charset="utf-8">
