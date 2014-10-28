@@ -1,0 +1,46 @@
+@(model: com.kanban.views.models.StoriesViewModel)
+
+<html>
+    <head>
+        <title>A simple Kanban board</title>
+        <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen" charset="utf-8" />
+    </head>
+    <body>
+
+        <h2 class="header">weKanban: Simple Kanban board</h2>
+        <span id="message" class="message clearFloat"></span>
+        <br/>
+        <span class="linkLabel clearFloat"><a href="/card/create">[Add new story to Ready Phase]</a></span>
+        <div class="phase" id="readyPhase">
+            <h3 class="message" title="Stories ready for development. Limit is set to 3">Ready [3]</h3>
+            @storytemplate(model.storiesByPhase("ready"))
+        </div>
+        <div class="phase" id="devPhase">
+            <h3 class="message" title="Stories in progress. Limit is set to 2">Dev [2]</h3>
+            @storytemplate(model.storiesByPhase("dev"))
+        </div>
+        <div class="phase" id="testPhase">
+            <h3 class="message" title="Stories that are tested. Limit is set to 2">Test [2]</h3>
+            @storytemplate(model.storiesByPhase("test"))
+        </div>
+        <div class="phase" id="deployPhase" title="Ready for production deployment">
+            <h3 class="message">Deploy</h3>
+            @storytemplate(model.storiesByPhase("deploy"))
+        </div>
+
+
+        <script type="text/javascript" src="/js/jquery-1.4.2.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.core.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.widget.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.mouse.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.draggable.js"></script>
+        <script type="text/javascript" src="/js/jquery.ui.droppable.js"></script>
+        <script type="text/javascript" src="/js/main.js"></script>
+
+        <script type="text/javascript">
+           $(function() {
+               init();
+           });
+        </script>
+    </body>
+</html>
